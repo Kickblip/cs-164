@@ -1,18 +1,13 @@
 public class Testing {
     public static void main (String[] args) {
-        checkTwo();
+        int counter = 10;
+        String tracker = "Track: ";
+        do {
+            tracker += " " + counter;
+        } while (++counter < 11);
+
+        System.out.println(counter);
+        System.out.println(tracker);
 
     }
-
-
-    public static void checkTwo() {
-        for (char c = 'A'; c < 'D'; c++) {
-            for (int i = 0; i <= 2; i++) {
-                System.out.println("seat " + c + i);
-            }
-        }
-  }
-
-
-
 }
