@@ -1,13 +1,19 @@
 public class Testing {
     public static void main (String[] args) {
-        int counter = 10;
-        String tracker = "Track: ";
-        do {
-            tracker += " " + counter;
-        } while (++counter < 11);
 
-        System.out.println(counter);
-        System.out.println(tracker);
+        String magic = "abracadabra";
+
+        System.out.println(magic.indexOf("b"));
+        System.out.println(magic.indexOf("a"));
+        System.out.println(magic.indexOf("a", magic.indexOf("c")));
+        System.out.println(magic.indexOf(1,6));
+        System.out.println(magic.indexOf(magic.indexOf("c"))+1);
+
+        // String shorter = magic.substring(1, 6);
+        String shorter = magic.substring(1, magic.indexOf("a", magic.indexOf("c"))+1);
+        // String shorter = magic.substring(magic.indexOf("b"), magic.indexOf("a", magic.indexOf("c"))+1);
+
+        System.out.println(shorter);
 
     }
 }
