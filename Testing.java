@@ -1,14 +1,19 @@
 public class Testing {
-    public static void main (String[] args) {
-        checkTwo();
-    }
-
-    public static void checkTwo() {
-        for (char c = 'A'; c < 'D'; c++) {
-            for (int i = 0; i <= 2; i++) {
-                System.out.println("seat " + c + i);
-            }
+    private static int doSomething(int[] arr) {
+        int val = 0;
+        for(int i = 0; i < arr.length; i++) {
+            val += arr[i];
         }
-    }
+        return val;
+      }
+      
+      
+      
+      
+      public static void main(String[] args) {
+        int[] arr = {-9, 2, -10, 9, -6, 2};
+        System.out.println(doSomething(arr));
+      }
+      
 
 }
