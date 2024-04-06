@@ -64,7 +64,7 @@ public class MOB implements Attributes {
                 String.format("| %-27s|%n", getName()) +
                 "|                            |\n" +
                 String.format("|         Health: %-10d |%n", getHP())  +
-                String.format("|  Power: %-6s  Armor: %-4d|%n", getDamageDie().toString(), getArmor()) +
+                String.format("|  Power: %-6s  Armor: %-4d|%n", getDamageDie(), getArmor()) +
                 "|                            |\n" +
                 "+============================+";
     }

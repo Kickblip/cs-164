@@ -47,7 +47,7 @@ public class Knight extends MOB {
 
     public String toCSV() {
         // name,maxHP,armor,hitmodifer,damageDie,xp
-        return String.format("%s,%d,%d,%d,%s,%d", getName(), getMaxHP(), getArmor(), getHitModifier(), getDamageDie().toString(), xp);
+        return String.format("%s,%d,%d,%d,%s,%d", getName(), getMaxHP(), getArmor(), getHitModifier(), getDamageDie(), getXP());
     }
 
     public String toString() {

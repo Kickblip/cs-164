@@ -47,7 +47,7 @@ public class Fortune implements Attributes {
                 String.format("|HP Bonus: %+12d|%n", getMaxHP()) +
                 String.format("|AC Bonus: %+12d|%n", getArmor()) +
                 String.format("|Hit Bonus: %+11d|%n", getHitModifier()) +
-                String.format("|Damage Adj: %10s|%n", (getDamageDie() != null ? getDamageDie().toString() : '-')) +
+                String.format("|Damage Adj: %10s|%n", (getDamageDie() != null ? getDamageDie() : '-')) +
                 "+======================+";
     }
 

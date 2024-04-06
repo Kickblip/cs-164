@@ -8,5 +8,6 @@ public class Main {
         System.out.println(ftn.toString());
         knight.setActiveFortune(ftn);
         System.out.println(knight.toString());
+        System.out.println(knight.toCSV());
     }
 }
