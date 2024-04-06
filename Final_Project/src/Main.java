@@ -6,5 +6,7 @@ public class Main {
         System.out.println(knight.toString());
         Fortune ftn = new Fortune("Merlin Luck", 10, 5, 2, DiceType.D12);
         System.out.println(ftn.toString());
+        knight.setActiveFortune(ftn);
+        System.out.println(knight.toString());
     }
 }

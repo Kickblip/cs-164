@@ -42,13 +42,13 @@ public class Fortune implements Attributes {
     }
 
     public String toString () {
-        return "+============================+\n" +
-                String.format("| %-27s|%n", getName()) +
-                "|                            |\n" +
-                String.format("|         Health: %-10d |%n", getMaxHP())  +
-                String.format("|  Power: %-6s  Armor: %-4d|%n", getDamageDie().toString(), getArmor()) +
-                "|                            |\n" +
-                "+============================+";
+        return "+======================+\n" +
+                String.format("|%-22s|%n", getName()) +
+                String.format("|HP Bonus: %+12d|%n", getMaxHP()) +
+                String.format("|AC Bonus: %+12d|%n", getArmor()) +
+                String.format("|Hit Bonus: %+11d|%n", getHitModifier()) +
+                String.format("|Damage Adj: %10s|%n", (getDamageDie() != null ? getDamageDie().toString() : '-')) +
+                "+======================+";
     }
 
     public static void main(String[] args) {

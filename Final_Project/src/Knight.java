@@ -53,8 +53,9 @@ public class Knight extends MOB {
     public String toString() {
         return "+============================+\n" +
                 String.format("| %-27s|%n", getName()) +
+                String.format("| id: %-23d|%n", getId()) +
                 "|                            |\n" +
-                String.format("|         Health: %-10d |%n", getMaxHP())  +
+                String.format("| Health: %-6s  XP: %-7d|%n", getMaxHP(), getXP())  +
                 String.format("|  Power: %-6s  Armor: %-4d|%n", getDamageDie().toString(), getArmor()) +
                 "|                            |\n" +
                 "+============================+";
