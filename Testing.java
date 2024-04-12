@@ -1,44 +1,31 @@
 public class Testing {
 
+    public void initializeListFromFile(String filename) {
 
-/**Problem 3
- * @author Liam Barrett and Prajjol Neupane
- * @param array1
- * @return array1 with the max value swaped with the last index of the array
- * Step-by-step algorithm
- * Assign array1 to a temporary integer variable
- * Create integer variable to hold the index
- * Use a for each loop to iterate through each element i in the array1
- * Store the temporary integer with the max value in each element in array1
- * Swap the max value found with the last index of array1 which is length() - 1
- *
- */
+//         Each line in the file to read from represents a single object with the following possible formats: For a Student object: firstName lastName id
 
-   public static int[] SwapMaxWithLast(int[] array1) {
-    int[] temparr = array1;
-    int max = 0;
-    int idx = 0;
-    for (int i : array1) {
-        if (i > max) {
-            max = i;
-            for (int j = 0; j < array1.length; j++) {
-                if (array1[j] == max) {
-                    idx = j;
+// For a Person object: firstName lastName
+// USE A DELIMITER TO SEPARATE THE VALUES IN THE FILE
+        try {
+            Scanner scanner = new Scanner(new File(filename));
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] tokens = line.split(" ");
+                if (tokens.length == 3) {
+                    Student student = new Student(tokens[0], tokens[1], tokens[2]);
+                    list.add(student);
+                } else if (tokens.length == 2) {
+                    Person person = new Person(tokens[0], tokens[1]);
+                    list.add(person);
                 }
             }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
-    temparr[idx] = array1[array1.length - 1];
-    temparr[array1.length - 1] = max;
-
-    return temparr;
-   }
 
 public static void main(String[] args) {
-    int[] test = SwapMaxWithLast(new int[] {4, 3, 5, 2, 1});
-    for (int i : test) {
-        System.out.print(i + " ");
-    }
+    
 }
       
 
