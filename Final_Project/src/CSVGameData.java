@@ -22,14 +22,14 @@ public class CSVGameData extends GameData{
                         line.nextInt(),
                         line.nextInt(),
                         line.nextInt(),
-                        DiceType.valueOf(line.next())));
+                        (line.next() == "-") ? null : DiceType.valueOf(line.next())));
             } else if(type.equals("FORTUNE")) {
                 fortunes.add(new Fortune(
                         line.next().trim(),
                         line.nextInt(),
                         line.nextInt(),
                         line.nextInt(),
-                        DiceType.valueOf(line.next())));
+                        (line.next() == "-") ? null : DiceType.valueOf(line.next())));
             }
         }
     }
