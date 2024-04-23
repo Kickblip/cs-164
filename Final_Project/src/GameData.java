@@ -1,12 +1,25 @@
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 public class GameData {
     protected final List<Knight> activeKnights;
     protected final List<Fortune> fortunes;
     protected final List<Knight> knights;
-    private static final int MAX_ACTIVE;
+    private static final int MAX_ACTIVE = 4;
     protected final List<MOB> monsters;
-    private static final Random random;
+    private static final Random random = new Random();
+
+    public GameData() {
+        activeKnights = new ArrayList<>();
+        fortunes = new ArrayList<>();
+        knights = new ArrayList<>();
+        monsters = new ArrayList<>();
+    }
 
     protected Knight findKnight(String nameOrId, List<Knight> list) {
         for (Knight knight : list) {
@@ -59,13 +72,22 @@ public class GameData {
     }
 
     public boolean setActive(Knight kt) {
-        if (activeKnights.size() < 4) {
+        if (activeKnights.size() < MAX_ACTIVE) {
             activeKnights.add(kt);
             return true;
         }
         return false;
     }
 
-    public abstract void save(String filename);
-
+    public void save(String filename) {
+        try {
+            PrintWriter writer = new PrintWriter(new File(filename));
+            for(Knight kt : knights) {
+                writer.println(kt.toCSV());
+            }
+            writer.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + filename);
+        }
+    }
 }

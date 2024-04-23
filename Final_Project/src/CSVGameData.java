@@ -1,3 +1,8 @@
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 public class CSVGameData extends GameData{
     CSVGameData(String gamedata, String saveData) {
         loadGameData(gamedata);
@@ -50,7 +55,8 @@ public class CSVGameData extends GameData{
 
     private Scanner readFile(String fileName) {
         try {
-            return new Scanner(new File(fileName));
+            Scanner filescanner = new Scanner(new File(fileName));
+            return filescanner;
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + fileName);
             return null;

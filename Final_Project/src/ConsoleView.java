@@ -1,5 +1,8 @@
-public class ConsoleView implements GameView{
-    private final Scanner in;
+import java.util.List;
+import java.util.Scanner;
+
+public class ConsoleView implements GameView {
+    private final Scanner in = new Scanner(System.in);
 
     public boolean checkContinue() {
         System.out.println("Would you like to continue on your quest (y/n)?");
