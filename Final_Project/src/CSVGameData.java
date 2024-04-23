@@ -10,6 +10,7 @@ public class CSVGameData extends GameData{
     }
  
     void loadGameData(String gamedata) {
+        if (gamedata == null) return;
         Scanner file = readFile(gamedata);
         if(file == null) return;
         while(file.hasNextLine()) {
@@ -17,25 +18,36 @@ public class CSVGameData extends GameData{
             line.useDelimiter(",");
             String type = line.next().trim();
             if(type.equals("MOB")) {
+                String name = line.next().trim();
+                int health = line.nextInt();
+                int attack = line.nextInt();
+                int defense = line.nextInt();
+                String diceTypeToken = line.next().trim();
                 monsters.add(new MOB(
-                        line.next().trim(),
-                        line.nextInt(),
-                        line.nextInt(),
-                        line.nextInt(),
-                        (line.next() == "-") ? null : DiceType.valueOf(line.next())));
+                        name,
+                        health,
+                        attack,
+                        defense,
+                        diceTypeToken.equals("-") ? null : DiceType.valueOf(diceTypeToken)));
             } else if(type.equals("FORTUNE")) {
+                String name = line.next().trim();
+                int health = line.nextInt();
+                int attack = line.nextInt();
+                int defense = line.nextInt();
+                String diceTypeToken = line.next().trim();
                 fortunes.add(new Fortune(
-                        line.next().trim(),
-                        line.nextInt(),
-                        line.nextInt(),
-                        line.nextInt(),
-                        (line.next() == "-") ? null : DiceType.valueOf(line.next())));
+                        name,
+                        health,
+                        attack,
+                        defense,
+                        diceTypeToken.equals("-") ? null : DiceType.valueOf(diceTypeToken)));
             }
         }
     }
 
     void loadSaveData(String saveData) {
         int counter = 0;
+        if (saveData == null) return;
         Scanner file = readFile(saveData);
         if(file == null) return;
         while(file.hasNextLine()) {
