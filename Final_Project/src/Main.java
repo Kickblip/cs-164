@@ -1,13 +1,23 @@
 public class Main {
+    private static String gamedata;
+    private static String saveData;
+    
     public static void main(String[] args) {
-        MOB mob = new MOB("Goblin", 10, 2, 1, DiceType.D6);
-        System.out.println(mob.toString());
-        Knight knight = new Knight(1, "Sir Lancelot", 20, 5, 2, DiceType.D12, 0);
-        System.out.println(knight.toString());
-        Fortune ftn = new Fortune("Merlin Luck", 10, 5, 2, DiceType.D12);
-        System.out.println(ftn.toString());
-        knight.setActiveFortune(ftn);
-        System.out.println(knight.toString());
-        System.out.println(knight.toCSV());
+        processArgs(args);
+        GameData data = new CSVGameData(gamedata, saveData);
+        GameView view  = new ConsoleView();
+        CombatEngine engine = new CombatEngine(data, view);
+        GameController controller = new GameController(data, view, engine);
+        controller.start();
+    }
+
+    private static void processArgs(String[] args) {
+        for (String arg : args) {
+            if (arg.startsWith("--data")) {
+                gamedata = arg.substring(arg.indexOf("=") + 1);
+            } else {
+                saveData = arg;
+            }
+        }
     }
 }
