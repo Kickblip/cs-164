@@ -23,8 +23,14 @@ public class GameData {
 
     protected Knight findKnight(String nameOrId, List<Knight> list) {
         for (Knight knight : list) {
-            if (nameOrId.toLowerCase().contains(knight.getName().toLowerCase()) || knight.getId() == Integer.parseInt(nameOrId)) {
-                return knight;
+            try {
+                if (knight.getId() == Integer.parseInt(nameOrId)) {
+                    return knight;
+                }
+            } catch (NumberFormatException e) {
+                if (knight.getName().toLowerCase().contains(nameOrId.toLowerCase())) {
+                    return knight;
+                }
             }
         }
         return null;

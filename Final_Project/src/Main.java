@@ -3,6 +3,9 @@ public class Main {
     private static String saveData;
     
     public static void main(String[] args) {
+        gamedata = "gamedata.csv";
+        saveData = "knights.csv";
+
         processArgs(args);
         GameData data = new CSVGameData(gamedata, saveData);
         GameView view  = new ConsoleView();
@@ -20,4 +23,5 @@ public class Main {
             }
         }
     }
+
 }

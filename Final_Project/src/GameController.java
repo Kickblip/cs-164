@@ -11,23 +11,23 @@ public class GameController {
 
     protected boolean processCommand(String command) {
         String[] parts = command.split(" ");
-        if (command.equals("exit") || command.equals("bye")) {
+        if (command.contains("exit") || command.contains("bye")) {
             return false;
         } else if (command.equals("ls") || command.equals("list all")) {
             view.listKnights(data.getKnights());
         } else if (command.equals("list active")) {
             view.listKnights(data.getActiveKnights());
         } else if (command.contains("show")) {
-            data.getKnight(parts[1]).toString();
+            System.out.println(data.getKnight(command.substring("show".length()).trim()).toString());
         } else if (command.contains("set active")) {
-            data.setActive(data.getKnight(parts[1]));
+            data.setActive(data.getKnight(command.substring("set active".length()).trim()));
         } else if (command.contains("remove")) {
-            data.removeActive(data.getKnight(parts[1]));
+            data.removeActive(data.getKnight(command.substring("remove".length()).trim()));
         } else if (command.contains("save")) {
             if (parts.length < 2) {
                 data.save("saveData.csv");
             } else {
-                data.save(parts[1]);
+                data.save(command.substring("save".length()).trim());
             }
         } else if (command.equals("explore") || command.equals("adventure") || command.equals("quest")) {
             engine.initialize();
@@ -41,7 +41,6 @@ public class GameController {
     public void start() {
         view.splashScreen();
         while (true) {
-            view.checkContinue();
             if (!processCommand(view.displayMainMenu())) {
                 break;
             }
