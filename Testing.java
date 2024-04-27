@@ -1,15 +1,31 @@
 public class Testing {
-    public static String collect(Object[] array, int pos) {
-        if(pos >= array.length) return "";
-        if(array[pos] instanceof String[]) return collect((String[])array[pos], 0) +
-                collect(array, ++pos);
-        return  array[pos] + collect(array, ++pos);
+    public static void swapper(int[][] matrix) {
+
+        for (int i = 0; i < matrix.length; i++) {
+
+            for (int j = matrix[i].length-1; j > i; j--) {
+
+                int tmp = matrix[i][j];
+
+                matrix[i][j] = matrix[j][i];
+
+                matrix[j][i] = tmp;
+
+            }
+
+        }
+
     }
 
+
+
     public static void main(String[] args) {
-        System.out.println(collect(new String[]{"j", "a", "v", "a"}, 0));
-        System.out.println(collect(new Object[]{"D", new String[]{"r", ".", " "}, "Strange" }, 0));
-    }
+
+        int[][] matrix = { { 1, 2, 3 }, { 20, 21, 22 }, { 30, 31, 32 } };
+
+  swapper(matrix);
+
+}
       
 
 }
