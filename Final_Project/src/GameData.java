@@ -7,18 +7,15 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 public class GameData {
-    protected final List<Knight> activeKnights;
-    protected final List<Fortune> fortunes;
-    protected final List<Knight> knights;
+    protected final List<Knight> activeKnights = new ArrayList<>();
+    protected final List<Fortune> fortunes = new ArrayList<>();
+    protected final List<Knight> knights = new ArrayList<>();
     private static final int MAX_ACTIVE = 4;
-    protected final List<MOB> monsters;
+    protected final List<MOB> monsters = new ArrayList<>();
     private static final Random random = new Random();
 
     public GameData() {
-        activeKnights = new ArrayList<>();
-        fortunes = new ArrayList<>();
-        knights = new ArrayList<>();
-        monsters = new ArrayList<>();
+
     }
 
     protected Knight findKnight(String nameOrId, List<Knight> list) {
