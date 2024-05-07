@@ -1,31 +1,20 @@
 public class Testing {
-    public static void swapper(int[][] matrix) {
+    
+    
+	public static void main(String[] args) {
+		munge("A"); 
+	}
+	
+	public static String munge(String s) {
+		if(s.length() >= 10) return s;
+		else {
+			if(s.length() > 1) {System.out.println(s);}
+			char c = s.charAt(s.length()-1);
+			c++;
+			return munge(c + s + c);
+		}
+	}
 
-        for (int i = 0; i < matrix.length; i++) {
-
-            for (int j = matrix[i].length-1; j > i; j--) {
-
-                int tmp = matrix[i][j];
-
-                matrix[i][j] = matrix[j][i];
-
-                matrix[j][i] = tmp;
-
-            }
-
-        }
-
-    }
-
-
-
-    public static void main(String[] args) {
-
-        int[][] matrix = { { 1, 2, 3 }, { 20, 21, 22 }, { 30, 31, 32 } };
-
-  swapper(matrix);
-
-}
       
 
 }
